@@ -6,4 +6,6 @@
 
 - 可配合服务网关，链路追踪使用（独立发布）。目前服务网关使用zuul,链路追踪使用trace;(可根据公司需求替换其他产品，需自己另外添加依赖调试)
 
+- 配合zkui开源项目进行zookeeper的服务管理。https://github.com/richmo998/zkui.git
+
 
