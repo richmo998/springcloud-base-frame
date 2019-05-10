@@ -1,5 +1,5 @@
 ## 默认环境配置
-/config/bdp-dht,default=spring.datasource.url=jdbc:mysql://172.17.209.6:3306/test
+/config/bdp-dht,default=spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test
 /config/bdp-dht,default=spring.datasource.username=root
 /config/bdp-dht,default=spring.datasource.password=root
 /config/bdp-dht,default=spring.datasource.driver-class-name=com.mysql.jdbc.Driver
@@ -21,13 +21,13 @@
 /config/bdp-dht,default=loginPassword=123456
 
 ### 加入activemq配置信息
-/config/bdp-dht,default=spring.activemq.broker-url=failover:(tcp://10.234.6.192:3046,tcp://10.234.6.193:3046,tcp://10.234.6.194:3046)?initialReconnectDelay=10000&maxReconnectAttempts=-1
+/config/bdp-dht,default=spring.activemq.broker-url=failover:(tcp://127.0.0.1:3046,tcp://127.0.0.1:3046,tcp://127.0.0.1:3046)?initialReconnectDelay=10000&maxReconnectAttempts=-1
 /config/bdp-dht,default=spring.activemq.in-memory=true
 /config/bdp-dht,default=spring.activemq.test-queue-name=test.queue
 
 
 ## dev环境配置
-/config/bdp-dht,dev=spring.datasource.url=jdbc:mysql://172.17.209.6:3306/test
+/config/bdp-dht,dev=spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test
 /config/bdp-dht,dev=spring.datasource.username=root
 /config/bdp-dht,dev=spring.datasource.password=root
 /config/bdp-dht,dev=spring.datasource.driver-class-name=com.mysql.jdbc.Driver
@@ -49,7 +49,7 @@
 /config/bdp-dht,dev=loginPassword=123456
 
 ### 加入activemq配置信息
-/config/bdp-dht,dev=spring.activemq.broker-url=failover:(tcp://10.234.6.192:3046,tcp://10.234.6.193:3046,tcp://10.234.6.194:3046)?initialReconnectDelay=10000&maxReconnectAttempts=-1
+/config/bdp-dht,dev=spring.activemq.broker-url=failover:(tcp://127.0.0.1:3046,tcp://127.0.0.1:3046,tcp://127.0.0.1:3046)?initialReconnectDelay=10000&maxReconnectAttempts=-1
 /config/bdp-dht,dev=spring.activemq.in-memory=true
 /config/bdp-dht,dev=spring.activemq.test-queue-name=test.queue
 
