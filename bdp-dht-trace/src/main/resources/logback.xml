@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<!-- 定义常量 -->
+	<!--  测试环境  -->
+	<property name="log_dir" value="~/data/logs" />
+	
+	<property name="maxHistory" value="90" />
+	<property name="appName" value="sc-trace" />
+	
+	<timestamp key="bydate" datePattern="yyyy-MM-dd" />
+
+	<!-- 设置链路日志的格式 -->
+	<property name="CONSOLE_LOG_PATTERN"
+			  value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+
+	<!-- 定义控制台打印 -->
+	<!-- 继承root的配置 -->
+	<!-- 这里打印链路日志信息。这会导致控制台日志文件巨大。在生产环境中，不建议这样做，而应该通过zipkin统一收集链路日志。 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>utf8</charset>
+		</encoder>
+	</appender>
+	
+	<!-- 定义日志文件输出 -->
+	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/${appName}.error</fileNamePattern>
+			<maxHistory>${maxHistory}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}  %-5level %logger -- %msg%n</pattern>
+		</encoder>
+	</appender>	
+	
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="error" />
+	</root>
+
+</configuration>

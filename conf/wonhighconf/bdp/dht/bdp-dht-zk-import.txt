@@ -1,0 +1,57 @@
+## 默认环境配置
+/config/bdp-dht,default=spring.datasource.url=jdbc:mysql://172.17.209.6:3306/test
+/config/bdp-dht,default=spring.datasource.username=root
+/config/bdp-dht,default=spring.datasource.password=root
+/config/bdp-dht,default=spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+/config/bdp-dht,default=mybatis.mapper-locations=classpath*:/mapper/**Mapper.xml
+/config/bdp-dht,default=spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+/config/bdp-dht,default=spring.datasource.initialSize=5
+/config/bdp-dht,default=spring.datasource.minIdle=5
+/config/bdp-dht,default=spring.datasource.maxActive=20
+/config/bdp-dht,default=spring.datasource.maxWait=60000
+/config/bdp-dht,default=spring.datasource.timeBetweenEvictionRunsMillis=60000
+/config/bdp-dht,default=spring.datasource.minEvictableIdleTimeMillis=300000
+/config/bdp-dht,default=spring.datasource.validationQuery=SELECT 1 FROM DUAL
+/config/bdp-dht,default=spring.datasource.testWhileIdle=true
+/config/bdp-dht,default=spring.datasource.testOnBorrow=false
+/config/bdp-dht,default=spring.datasource.testOnReturn=false
+/config/bdp-dht,default=spring.datasource.filters=stat,wall,log4j
+/config/bdp-dht,default=spring.datasource.logSlowSql=true
+/config/bdp-dht,default=loginUsername=root
+/config/bdp-dht,default=loginPassword=123456
+
+### 加入activemq配置信息
+/config/bdp-dht,default=spring.activemq.broker-url=failover:(tcp://10.234.6.192:3046,tcp://10.234.6.193:3046,tcp://10.234.6.194:3046)?initialReconnectDelay=10000&maxReconnectAttempts=-1
+/config/bdp-dht,default=spring.activemq.in-memory=true
+/config/bdp-dht,default=spring.activemq.test-queue-name=test.queue
+
+
+## dev环境配置
+/config/bdp-dht,dev=spring.datasource.url=jdbc:mysql://172.17.209.6:3306/test
+/config/bdp-dht,dev=spring.datasource.username=root
+/config/bdp-dht,dev=spring.datasource.password=root
+/config/bdp-dht,dev=spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+/config/bdp-dht,dev=mybatis.mapper-locations=classpath*:/mapper/**Mapper.xml
+/config/bdp-dht,dev=spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+/config/bdp-dht,dev=spring.datasource.initialSize=5
+/config/bdp-dht,dev=spring.datasource.minIdle=5
+/config/bdp-dht,dev=spring.datasource.maxActive=20
+/config/bdp-dht,dev=spring.datasource.maxWait=60000
+/config/bdp-dht,dev=spring.datasource.timeBetweenEvictionRunsMillis=60000
+/config/bdp-dht,dev=spring.datasource.minEvictableIdleTimeMillis=300000
+/config/bdp-dht,dev=spring.datasource.validationQuery=SELECT 1 FROM DUAL
+/config/bdp-dht,dev=spring.datasource.testWhileIdle=true
+/config/bdp-dht,dev=spring.datasource.testOnBorrow=false
+/config/bdp-dht,dev=spring.datasource.testOnReturn=false
+/config/bdp-dht,dev=spring.datasource.filters=stat,wall,log4j
+/config/bdp-dht,dev=spring.datasource.logSlowSql=true
+/config/bdp-dht,dev=loginUsername=root
+/config/bdp-dht,dev=loginPassword=123456
+
+### 加入activemq配置信息
+/config/bdp-dht,dev=spring.activemq.broker-url=failover:(tcp://10.234.6.192:3046,tcp://10.234.6.193:3046,tcp://10.234.6.194:3046)?initialReconnectDelay=10000&maxReconnectAttempts=-1
+/config/bdp-dht,dev=spring.activemq.in-memory=true
+/config/bdp-dht,dev=spring.activemq.test-queue-name=test.queue
+
+
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.wonhigh.bdp.dht</groupId>
+    <artifactId>bdp-dht-trace</artifactId>
+    <version>3.0.0</version>
+    <name>bdp-dht-trace</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Camden.SR7</spring-cloud.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zookeeper-all</artifactId>
+        </dependency>
+
+        <!-- sleuth配置 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+        <!--使用@EnableZipkinServer注解方式只需要依赖如下两个包-->
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-ui</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
+        <!--保存到ES需要如下依赖-->
+        <!-- 添加 spring-data-elasticsearch的依赖 -->
+        <!--<dependency>-->
+        <!--<groupId>io.zipkin.java</groupId>-->
+        <!--<artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>-->
+        <!--<version>1.24.0</version>-->
+        <!--<optional>true</optional>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>io.zipkin.java</groupId>-->
+        <!--<artifactId>zipkin</artifactId>-->
+        <!--<version>1.24.0</version>-->
+        <!--</dependency>        -->
+        <!--<dependency>-->
+        <!--<groupId>com.squareup.okhttp3</groupId>-->
+        <!--<artifactId>okhttp</artifactId>-->
+        <!--<version>3.9.1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.elasticsearch</groupId>-->
+        <!--<artifactId>elasticsearch</artifactId>-->
+        <!--<version>5.6.10</version>-->
+        <!--</dependency>-->
+
+        <!--trace保存到MySQL数据库需要如下依赖-->
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-storage-mysql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
